@@ -12,6 +12,7 @@ class DictionaryResource < ActiveResource::Base
     self.site = 'http://127.0.0.1/'
     headers['Host'] = 'dictionary.thlib.org' 
   else
-    self.site = 'http://dictionary.thlib.org/' 
+    self.site = 'http://dictionary.thlib.org/'
+  end
   self.timeout = 100
 end
