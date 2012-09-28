@@ -8,7 +8,7 @@ class DictionaryResource < ActiveResource::Base
     headers['Host'] = 'dev.dictionary.thlib.org'
 #  elsif hostname.ends_with? 'local'
 #    self.site = 'http://localhost/master/places/'
-  elsif hostname =~ /sds[3-8].itc.virginia.edu/
+  elsif hostname =~ /sds.+\.itc\.virginia\.edu/
     self.site = 'http://127.0.0.1/'
     headers['Host'] = 'dictionary.thlib.org' 
   else
