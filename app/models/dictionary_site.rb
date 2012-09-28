@@ -8,7 +8,7 @@ class DictionarySite
          @@url = 'http://staging.dictionary.thlib.org/'
        elsif hostname == 'dev.thlib.org'
          @@url = 'http://dev.dictionary.thlib.org/'
-       elsif hostname =~ /sds[3-8].itc.virginia.edu/
+       elsif hostname =~ /sds.+\.itc\.virginia\.edu/
          @@url = 'http://dictionary.thlib.org/'
        else
          @@url = 'http://dictionary.thlib.org/'
