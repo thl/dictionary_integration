@@ -2,19 +2,12 @@ class DictionarySite
   @@url = nil
   
   def self.get_url
-     if @@url.nil?
-       hostname = Socket.gethostname.downcase
-       if hostname == 'sds6.itc.virginia.edu'
-         @@url = 'http://staging.dictionary.thlib.org/'
-       elsif hostname == 'dev.thlib.org'
-         @@url = 'http://dev.dictionary.thlib.org/'
-       elsif hostname =~ /sds.+\.itc\.virginia\.edu/
-         @@url = 'http://dictionary.thlib.org/'
-       else
-         @@url = 'http://dictionary.thlib.org/'
-       end  
-     end
-     @@url
+    Rails.cache.fetch('dictionary/domain') do
+      case InterfaceUtils::Server.environment
+      when InterfaceUtils::Server::DEVELOPMENT                                                              then 'http://dev.dictionary.thlib.org/'
+      when InterfaceUtils::Server::STAGING                                                                  then 'http://staging.dictionary.thlib.org/'
+      when InterfaceUtils::Server::PRODUCTION, InterfaceUtils::Server::LOCAL, InterfaceUtils::Server::OTHER then 'http://dictionary.thlib.org/'
+      end
+    end
   end
-   
 end
