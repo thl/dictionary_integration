@@ -2,7 +2,7 @@ class DictionarySite
   @@url = nil
   
   def self.get_url
-    Rails.cache.fetch('dictionary/domain') do
+    Rails.cache.fetch('dictionary/domain', :expires_in => 1.day) do
       case InterfaceUtils::Server.environment
       when InterfaceUtils::Server::DEVELOPMENT                                                              then 'http://dev.dictionary.thlib.org/'
       when InterfaceUtils::Server::STAGING                                                                  then 'http://staging.dictionary.thlib.org/'
