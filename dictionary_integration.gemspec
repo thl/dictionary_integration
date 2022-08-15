@@ -7,11 +7,11 @@ require "dictionary_integration/version"
 Gem::Specification.new do |s|
   s.name        = "dictionary_integration"
   s.version     = DictionaryIntegration::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of DictionaryIntegration."
-  s.description = "TODO: Description of DictionaryIntegration."
+  s.authors     = ["Andres Montano"]
+  s.email       = ["amontano@virginia.edu"]
+  s.homepage    = "http://terms.kmaps.virginia.edu"
+  s.summary     = "This engine provides the core code for connecting to the legacy dictionary app."
+  s.description = "This engine provides the core code for connecting to the legacy dictionary app."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
